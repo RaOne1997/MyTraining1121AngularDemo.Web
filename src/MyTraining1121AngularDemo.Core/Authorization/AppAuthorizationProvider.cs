@@ -30,9 +30,10 @@ namespace MyTraining1121AngularDemo.Authorization
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
             pages.CreateChildPermission(AppPermissions.Pages_DemoUiComponents, L("DemoUiComponents"));
-            
+
+            var dashbord = pages.CreateChildPermission(AppPermissions.HelloWorldPermission, L("Hello world"), multiTenancySides: MultiTenancySides.Tenant); 
             //********************************* PhoneBook Permissions ***************************
-            
+
 
             var phoneBook = pages.CreateChildPermission(AppPermissions.Pages_Tenant_PhoneBook, L("PhoneBook"), multiTenancySides: MultiTenancySides.Tenant);
             phoneBook.CreateChildPermission(AppPermissions.Pages_Tenant_PhoneBook_CreatePerson, L("CreateNewPerson"), multiTenancySides: MultiTenancySides.Tenant);

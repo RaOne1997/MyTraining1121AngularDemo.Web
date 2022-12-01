@@ -1,5 +1,6 @@
 ﻿using Abp.Auditing;
 using Abp.Authorization;
+using Abp.Timing;
 using MyTraining1121AngularDemo.Authorization;
 using MyTraining1121AngularDemo.Tenants.Dashboard.Dto;
 
@@ -67,6 +68,14 @@ namespace MyTraining1121AngularDemo.Tenants.Dashboard
             };
         }
 
+        [AbpAuthorize(AppPermissions.HelloWorldPermission)]//check permission
+        public GetHelloWorldOutput GetHelloWorldData(GetHelloWorldInput input)
+        {
+            return new GetHelloWorldOutput()
+            {
+                OutPutName = "Hello " + input.Name + " (" + Clock.Now.Millisecond + ")"
+            };
+        }
         public GetSalesSummaryOutput GetSalesSummary(GetSalesSummaryInput input)
         {
             var salesSummary = DashboardRandomDataGenerator.GenerateSalesSummaryData(input.SalesSummaryDatePeriod);

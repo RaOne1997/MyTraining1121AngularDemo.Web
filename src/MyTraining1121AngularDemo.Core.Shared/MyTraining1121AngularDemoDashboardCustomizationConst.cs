@@ -20,6 +20,7 @@
                 public const string RegionalStats = "Widgets_Tenant_RegionalStats";
                 public const string SalesSummary = "Widgets_Tenant_SalesSummary";
                 public const string TopStats = "Widgets_Tenant_TopStats";
+                public const string HelloWorld = "Widgets_Tenant_HelloWorld";
             }
 
             public class Host
@@ -35,6 +36,7 @@
         public class Filters
         {
             public const string FilterDateRangePicker = "Filters_DateRangePicker";
+            public const string HelloWorldFilter = "Filters_HelloWorld";
         }
 
         public class DashboardNames

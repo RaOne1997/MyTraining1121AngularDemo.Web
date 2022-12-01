@@ -9,6 +9,7 @@
         //COMMON PERMISSIONS (FOR BOTH OF TENANTS AND HOST)
 
         public const string Pages = "Pages";
+        public const string HelloWorldPermission = "HelloWorldPermission";
 
         public const string Pages_DemoUiComponents = "Pages.DemoUiComponents";
         public const string Pages_Administration = "Pages.Administration";

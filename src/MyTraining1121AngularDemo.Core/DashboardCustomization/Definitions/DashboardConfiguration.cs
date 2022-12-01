@@ -34,6 +34,8 @@ namespace MyTraining1121AngularDemo.DashboardCustomization.Definitions
 
             // Define Widgets
 
+
+
             #region TenantWidgets
 
             var simplePermissionDependencyForTenantDashboard = new SimplePermissionDependency(AppPermissions.Pages_Tenant_Dashboard);
@@ -57,6 +59,8 @@ namespace MyTraining1121AngularDemo.DashboardCustomization.Definitions
                 )
             );
 
+
+
             var profitShare = new WidgetDefinition(
                 MyTraining1121AngularDemoDashboardCustomizationConsts.Widgets.Tenant.ProfitShare,
                 "WidgetProfitShare",
@@ -70,13 +74,28 @@ namespace MyTraining1121AngularDemo.DashboardCustomization.Definitions
                 side: MultiTenancySides.Tenant,
                 permissionDependency: simplePermissionDependencyForTenantDashboard
             );
-            
+
             var regionalStats = new WidgetDefinition(
                 MyTraining1121AngularDemoDashboardCustomizationConsts.Widgets.Tenant.RegionalStats,
                 "WidgetRegionalStats",
                 side: MultiTenancySides.Tenant,
                 permissionDependency: simplePermissionDependencyForTenantDashboard
             );
+            var helloWorldFilter = new WidgetFilterDefinition(
+      MyTraining1121AngularDemoDashboardCustomizationConsts.Filters.HelloWorldFilter, "FilterHelloWorld");//localized string key
+
+            WidgetFilterDefinitions.Add(helloWorldFilter);
+
+            var helloWorld = new WidgetDefinition(
+    id: MyTraining1121AngularDemoDashboardCustomizationConsts.Widgets.Tenant.HelloWorld,
+    name: "hello",//localized string key
+    side: MultiTenancySides.Tenant,
+    usedWidgetFilters: new List<string>() { helloWorldFilter.Id },// you can use any filter you need
+    permissionDependency: simplePermissionDependencyForTenantDashboard);
+
+
+
+
 
             var salesSummary = new WidgetDefinition(
                 MyTraining1121AngularDemoDashboardCustomizationConsts.Widgets.Tenant.SalesSummary,
@@ -85,7 +104,7 @@ namespace MyTraining1121AngularDemo.DashboardCustomization.Definitions
                 side: MultiTenancySides.Tenant,
                 permissionDependency: simplePermissionDependencyForTenantDashboard
             );
-            
+
             var topStats = new WidgetDefinition(
                 MyTraining1121AngularDemoDashboardCustomizationConsts.Widgets.Tenant.TopStats,
                 "WidgetTopStats",
@@ -100,6 +119,7 @@ namespace MyTraining1121AngularDemo.DashboardCustomization.Definitions
             WidgetDefinitions.Add(regionalStats);
             WidgetDefinitions.Add(topStats);
             WidgetDefinitions.Add(salesSummary);
+            WidgetDefinitions.Add(helloWorld);
             // Add your tenant side widgets here
 
             #endregion
@@ -163,7 +183,7 @@ namespace MyTraining1121AngularDemo.DashboardCustomization.Definitions
                 MyTraining1121AngularDemoDashboardCustomizationConsts.DashboardNames.DefaultTenantDashboard,
                 new List<string>
                 {
-                    generalStats.Id, dailySales.Id, profitShare.Id, memberActivity.Id, regionalStats.Id, topStats.Id, salesSummary.Id
+                    generalStats.Id, dailySales.Id, profitShare.Id, memberActivity.Id, regionalStats.Id, topStats.Id, salesSummary.Id,helloWorld.Id
                 });
 
             DashboardDefinitions.Add(defaultTenantDashboard);
@@ -183,7 +203,11 @@ namespace MyTraining1121AngularDemo.DashboardCustomization.Definitions
 
             // Add your dashboard definition here
 
+
+
             #endregion
+
+
 
         }
 
